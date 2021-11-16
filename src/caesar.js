@@ -40,10 +40,11 @@ const caesarModule = (function () {
   return final;
 }
 
-
-  return {
-    caesar,
-  };
+return {
+  caesar,
+};
 })();
+  
+ 
 
-module.exports = { caesar: caesarModule.caesar };
+module.exports = caesarModule.caesar;

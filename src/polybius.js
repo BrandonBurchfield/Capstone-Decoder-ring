@@ -133,7 +133,7 @@ const polybiusModule = (function () {
     }
 
     
-  }
+  
 
   polybius("jiggle", true);
   }

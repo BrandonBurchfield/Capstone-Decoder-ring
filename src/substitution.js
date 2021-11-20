@@ -73,7 +73,7 @@ const substitutionModule = (function () {
       let final = _translate(lib1, lib2);
       return final;
     }
-  }
+  
   }
 
   return {

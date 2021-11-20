@@ -8,26 +8,25 @@ const caesarModule = (function () {
 
   function caesar(input, shift, encode = true) {
     // your solution code here
-    if(!shift || shift === 0 || shift > 25 || shift < -25){
+    if (!shift || shift === 0 || shift > 25 || shift < -25) {
       return false;
     }
-    
-    if(!encode) shift *= -1;
+
+    if (!encode) shift *= -1;
 
     let message = input.toLowerCase();
     let final = "";
 
-    for(let text = 0; text < message.length; text++){
+    for (let text = 0; text < message.length; text++) {
       let letter = message[text];
     }
 
-    if(letter.match(/[a-z]/)){
-
+    if (letter.match(/[a-z]/)) {
       let code = message.charCodeAt(text) + shift;
-      if (code > 122){
+      if (code > 122) {
         code = code - 26;
       }
-      if (code < 97){
+      if (code < 97) {
         code = code + 26;
       }
       let newLetter = String.fromCharCode(code);
@@ -35,15 +34,14 @@ const caesarModule = (function () {
     } else {
       final += letter;
     }
-  }
-  console.log(final);
-  return final;
-}
 
-return {
-  caesar,
-};
+    console.log(final);
+    return final;
+  }
+
+  return {
+    caesar,
+  };
 })();
- 
 
 module.exports = caesarModule.caesar;

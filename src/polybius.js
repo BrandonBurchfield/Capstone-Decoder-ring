@@ -9,7 +9,6 @@ const polybiusModule = (function () {
   function polybius(input, encode = true) {
     // your solution code here
     const lib1 = [
-      //library of symbols
       "11",
       "21",
       "31",
@@ -37,7 +36,6 @@ const polybiusModule = (function () {
       "55",
     ];
     const lib2 = [
-      //library of letters
       "a",
       "b",
       "c",
@@ -68,74 +66,63 @@ const polybiusModule = (function () {
     console.log(lib2.length);
 
     if (encode) {
-      
-      let result = ""; 
+      let result = "";
       let message = input.toLowerCase();
       for (let text = 0; text < message.length; text++) {
-        
         let letter = message[text];
         console.log(`letter is ${letter}`);
         if (letter.match(/[a-z]/)) {
-          
           if (letter === "i" || letter === "j") {
-            result += "42"; 
+            result += "42";
           } else {
-            let num = lib2.indexOf(letter); 
-            result += lib1[num]; 
+            let num = lib2.indexOf(letter);
+            result += lib1[num];
           }
         } else {
-          result += letter; 
+          result += letter;
         }
       }
-      return result; 
+      return result;
     } else {
-      
-      let messageArr = input.split(" "); 
+      let messageArr = input.split(" ");
       console.log(messageArr);
       let lettersArr = [];
       for (word of messageArr) {
-        lettersArr.push(word.match(/.{2}/g)); 
-        
-        
+        lettersArr.push(word.match(/.{2}/g));
       }
-      let isEven = messageArr.every((word) => word.length % 2 === 0); 
+      let isEven = messageArr.every((word) => word.length % 2 === 0);
 
       if (!isEven) {
-        
         return false;
       }
-      let finalArr = []; 
-      
+      let finalArr = [];
+
       for (word of lettersArr) {
-        
         let tempArr = [];
         for (letter of word) {
           if (letter === "42") {
-            tempArr.push("(i/j)"); 
+            tempArr.push("(i/j)");
           } else {
             let num = lib1.indexOf(letter);
             let something = lib2[num];
-            tempArr.push(something); 
+            tempArr.push(something);
           }
         }
         finalArr.push(tempArr);
       }
-      
+
       let decodedArr = [];
       for (word of finalArr) {
-        let val = word.join(""); 
+        let val = word.join("");
         decodedArr.push(val);
       }
       console.log(decodedArr);
-      let final = decodedArr.join(" "); 
-      
+      let final = decodedArr.join(" ");
+
       return final;
     }
 
-    
-  
-
-  polybius("jiggle", true);
+    polybius("jiggle", true);
   }
 
   return {

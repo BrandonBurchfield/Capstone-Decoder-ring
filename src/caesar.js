@@ -19,7 +19,7 @@ const caesarModule = (function () {
 
     for (let text = 0; text < message.length; text++) {
       let letter = message[text];
-    }
+    
 
     if (letter.match(/[a-z]/)) {
       let code = message.charCodeAt(text) + shift;
@@ -43,5 +43,5 @@ const caesarModule = (function () {
     caesar,
   };
 })();
-
+ 
 module.exports = caesarModule.caesar;
